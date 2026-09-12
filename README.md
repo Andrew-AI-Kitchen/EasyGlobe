@@ -6,34 +6,30 @@ An artistic frontend study built around an interactive dotted globe, language ro
 
 ![Platform](https://img.shields.io/badge/platform-Web-73e7c5)
 ![Stack](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JavaScript-ffcb64)
-![Dependencies](https://img.shields.io/badge/runtime-dependencies-0-lightgrey)
+![License](https://img.shields.io/badge/license-Apache--2.0-ffcb64)
 
-[Live demo](https://andrew-ai-kitchen.github.io/EasyGlobe/) · [Desktop guide](docs/GITHUB-DESKTOP.md) · [Creator](https://github.com/Andrew-AI-Kitchen)
+[GitHub Desktop guide](docs/GITHUB-DESKTOP.md) · [Creator](https://github.com/Andrew-AI-Kitchen) · [Reference website](https://langalpha.ai/zh-cn/home) · [Reference repository](https://github.com/ginlix-ai/LangAlpha)
 
 ![EasyGlobe interactive dotted globe](docs/screenshots/hero-globe.png)
 
-## Why
+## About
 
-EasyGlobe is a from-scratch frontend learning project focused on the visual and interaction techniques behind a high-end product landing page. Its translation-oriented copy is a demonstration theme; the project itself is about frontend craft:
+EasyGlobe explores how a high-end landing page can combine a canvas-rendered globe, geographic labels, animated routes, restrained motion, and responsive editorial layout. Translation-oriented content provides the demonstration scenario; the project itself is a frontend interaction study.
 
-- a canvas-rendered orthographic globe
-- country labels bound to geographic coordinates
-- animated routes between selected languages
-- restrained motion, typography, spacing, and responsive composition
-- a no-code settings panel for changing the presentation
+The visual direction and part of the interaction structure were reverse-engineered from the publicly accessible [LangAlpha landing page](https://langalpha.ai/zh-cn/home) and its browser-rendered output. EasyGlobe was not started by forking or cloning LangAlpha's repository. The implementation was rebuilt and adapted into a separate static experience with a different theme, content model, configuration system, and interaction behavior.
 
-It is a static frontend. There is no translation model, user account system, database, analytics, or business backend.
+LangAlpha's official repository is public, includes its `web/` frontend, and is licensed under Apache License 2.0. EasyGlobe is not affiliated with or endorsed by LangAlpha or Ginlix AI. See [Acknowledgements](#acknowledgements) and [NOTICE](NOTICE) for the complete attribution.
 
 ## Highlights
 
 - **Interactive dotted globe** — drag to rotate, inspect countries, and select a language pair.
-- **Geographic labels** — labels follow projected coordinates and disappear on the far side of the globe.
+- **Geographic labels** — labels follow projected coordinates and disappear on the far side.
 - **Animated language routes** — selected countries receive distinct colors and a moving connection line.
 - **Configurable presentation** — change branding, links, theme, colors, motion, globe speed, and country copy in the browser.
 - **Local-first settings** — settings stay in browser storage and can be exported or imported as JSON.
 - **Responsive editorial UI** — landing sections, tabs, workspace previews, automation flows, FAQ, and mobile navigation.
 - **Portable launchers** — one-click helpers for macOS, Windows, and Linux.
-- **GitHub Pages ready** — relative paths, no build step, and `.nojekyll` included.
+- **Static deployment** — relative paths and `.nojekyll` make the project suitable for GitHub Pages without a build step.
 
 ## Screenshots
 
@@ -55,7 +51,7 @@ It is a static frontend. There is no translation model, user account system, dat
 
 ## Run locally
 
-Python 3 is the only prerequisite. The launcher finds an available local port and opens the default browser.
+Python 3 is the only prerequisite. The launcher starts a local static server on an available port and opens the default browser.
 
 | Platform | Start |
 |---|---|
@@ -69,11 +65,19 @@ Universal fallback:
 python3 launcher.py
 ```
 
-Keep the terminal window open while using the site. Press `Ctrl+C` to stop it. Opening `index.html` directly with `file://` is not supported because browsers restrict module and configuration loading in that mode.
+Keep the terminal window open while using the site. Press `Ctrl+C` to stop it. Do not open `index.html` through `file://`; browsers restrict the configuration files loaded in that mode.
+
+## Use the globe
+
+1. Drag the globe to rotate it.
+2. Select one country as the source language.
+3. Select another country as the target language.
+4. The two countries are highlighted and an animated route appears between them.
+5. Use the swap or reset controls to change the selection.
 
 ## Customize
 
-Select the `⌘` control in the top-right corner to open the settings panel. It can edit:
+Select the `⌘` control in the top-right corner to open the visual settings panel. It can edit:
 
 - project name, title, description, and links
 - light, dark, or system theme
@@ -81,9 +85,7 @@ Select the `⌘` control in the top-right corner to open the settings panel. It 
 - page motion and globe rotation speed
 - visible countries, language names, samples, and tone notes
 
-Settings are stored only in the current browser. Export the JSON file before clearing browser data or moving to another device.
-
-Default values are also available in:
+Settings are stored in the current browser and can be exported or imported as JSON. Repository defaults live in:
 
 ```text
 config/site.json
@@ -91,15 +93,11 @@ config/languages.json
 config/content.zh-CN.json
 ```
 
-## Publish with GitHub Desktop
+## Publish
 
-The prepared folder can be added directly to GitHub Desktop. Follow the complete instructions in [docs/GITHUB-DESKTOP.md](docs/GITHUB-DESKTOP.md).
+Add the `EasyGlobe` folder as a local repository in GitHub Desktop, create the first commit, and publish it. The complete bilingual instructions are in [docs/GITHUB-DESKTOP.md](docs/GITHUB-DESKTOP.md).
 
-For GitHub Pages, publish from the `main` branch and repository root. The resulting project URL is expected to be:
-
-```text
-https://andrew-ai-kitchen.github.io/EasyGlobe/
-```
+GitHub Pages is optional. After it is enabled, GitHub displays the deployment address under the repository's **Settings → Pages** page.
 
 ## Project structure
 
@@ -116,26 +114,21 @@ EasyGlobe/
 ├── Start EasyGlobe.command
 ├── start-easyglobe.cmd
 ├── start-easyglobe.sh
+├── LICENSE
+├── NOTICE
+├── THIRD_PARTY_NOTICES.md
 ├── README.md
 └── README.zh-CN.md
 ```
 
-## Scope and limitations
+## Acknowledgements
 
-- This is a frontend interaction concept, not a production translation service.
-- The settings panel stores data per browser and does not write back to repository files.
-- Country coverage is intentionally limited to a small demonstration set.
-- Python is used only to serve static files locally; it is not an application backend.
-- GitHub Pages serves the static experience, but cannot provide server-side features.
+- [LangAlpha website](https://langalpha.ai/zh-cn/home) — the public page studied for the original visual direction and interaction approach.
+- [ginlix-ai/LangAlpha](https://github.com/ginlix-ai/LangAlpha) — the official open-source project, including its public web frontend, released under the [Apache License 2.0](https://github.com/ginlix-ai/LangAlpha/blob/main/LICENSE).
+- [D3.js](https://d3js.org/), [Geist](https://vercel.com/font), and [Natural Earth](https://www.naturalearthdata.com/) — libraries, typeface, and geographic data used by EasyGlobe.
 
-## Design study note
-
-EasyGlobe is an independent, from-scratch implementation created for frontend learning. The landing-page presentation was studied with reference to [LangAlpha](https://langalpha.ai/zh-cn/home). EasyGlobe does not include its source code, logo, business identity, or service implementation, and is not affiliated with or endorsed by LangAlpha.
-
-## Third-party materials
-
-EasyGlobe uses D3.js, the Geist typeface, and public-domain Natural Earth geographic data. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for details.
+LangAlpha and its trademarks belong to their respective owners. Attribution describes the project's origin and does not imply sponsorship, partnership, or endorsement.
 
 ## License
 
-No open-source license has been granted for the EasyGlobe project at this stage. The source is published for learning and review. Third-party components remain under their respective licenses.
+EasyGlobe is released under the [Apache License 2.0](LICENSE). Code and modifications authored for this repository are covered by that license. Third-party components and data remain subject to their own terms as listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

@@ -2,98 +2,65 @@
 
 [English](GITHUB-DESKTOP.md) | 简体中文
 
-这份指南对应已经整理好的 `EasyGlobe` 文件夹。网页是纯静态项目，上传不需要安装 Node.js，也不需要配置服务器。
+EasyGlobe 是纯静态前端项目。上传过程不需要 Node.js、数据库或后台服务。
 
-## 第一步：确认文件夹
+## 第一步：添加本地仓库
 
-需要选择的本地路径是：
-
-```text
-langalpha-home-rebuild/github-upload/EasyGlobe
-```
-
-不要选择外层的 `langalpha-home-rebuild`，也不要上传 `00-source`、`01-audit` 或 `03-qa`。
-
-## 第二步：添加到 GitHub Desktop
-
-1. 打开 GitHub Desktop 并登录 `Andrew-AI-Kitchen`。
-2. 点击菜单 **File → Add Local Repository**。
-3. 点击 **Choose**，选择上面的 `EasyGlobe` 文件夹。
+1. 打开 GitHub Desktop 并登录。
+2. 点击 **File → Add Local Repository**。
+3. 选择包含 `index.html`、`README.md` 和 `.git` 的 `EasyGlobe` 文件夹。
 4. 点击 **Add Repository**。
 
-发布文件夹已经初始化为本地 Git 仓库，所以不需要再次创建目录。
+不要选择外层工作区，也不要把其他项目的原始快照或复核资料一并上传。准备好的 `EasyGlobe` 文件夹已经初始化为 `main` 分支。
 
-## 第三步：建立第一次提交
+## 第二步：检查第一次提交
 
-1. 打开左侧 **Changes**。
-2. 确认网页文件、`assets`、`config`、`docs` 和 README 都被选中。
-3. 在 **Summary** 填写：
+提交前确认以下内容都在变更列表中：
 
-```text
-Initial EasyGlobe release
-```
+- 网页文件：`index.html`、`rebuild.css`、`rebuild.js`
+- `assets/` 与 `config/`
+- `docs/` 中的截图和中英文文档
+- `LICENSE`、`NOTICE` 与 `THIRD_PARTY_NOTICES.md`
+- macOS、Windows 和 Linux 启动器
 
-4. **Description** 可以留空。
-5. 点击 **Commit to main**。
+提交说明可填写 `Initial EasyGlobe release`，然后点击 **Commit to main**。
 
-## 第四步：发布仓库
+## 第三步：发布仓库
 
-1. 点击顶部的 **Publish repository**。
-2. **Name** 填写 `EasyGlobe`。
-3. **Description** 建议填写：
-
-```text
-An artistic frontend study built around an interactive dotted globe.
-```
-
-4. **Organization** 选择 `None`，发布到你的个人账号。
-5. 如果希望别人看到代码，取消勾选 **Keep this code private**。
+1. 点击 **Publish repository**。
+2. 仓库名称填写 `EasyGlobe`，也可以填写你最终确定的其他名称。
+3. 简介可填写：`An artistic frontend study built around an interactive dotted globe.`
+4. 选择仓库所属的个人账号或组织。
+5. 如果需要公开开源，取消勾选 **Keep this code private**。
 6. 点击 **Publish Repository**。
 
-发布完成后，仓库地址应为：
+发布完成后，通过 **Repository → View on GitHub** 打开仓库。
 
-```text
-https://github.com/Andrew-AI-Kitchen/EasyGlobe
-```
+## 第四步：开启 GitHub Pages（可选）
 
-## 第五步：开启 GitHub Pages（可选）
+1. 在 GitHub 打开这个仓库。
+2. 进入 **Settings → Pages**。
+3. 在 **Build and deployment** 中选择 **Deploy from a branch**。
+4. 分支选择 `main`，目录选择 `/(root)`。
+5. 保存设置。
 
-1. 在 GitHub Desktop 中选择 **Repository → View on GitHub**。
-2. 进入仓库网页的 **Settings**。
-3. 在左侧找到 **Pages**。
-4. **Source** 选择 **Deploy from a branch**。
-5. **Branch** 选择 `main`。
-6. 目录选择 `/(root)`。
-7. 点击 **Save**。
-
-部署通常需要几分钟。完成后的地址预计为：
-
-```text
-https://andrew-ai-kitchen.github.io/EasyGlobe/
-```
-
-这个项目页面不会替代你的账号主页；每个仓库都可以单独拥有一个项目页面。
+部署完成后，GitHub 会在同一个 Pages 页面显示实际访问地址。项目 Pages 只属于当前仓库，不会替代 GitHub 账号主页。
 
 ## 以后如何更新
 
-1. 在本地修改文件。
-2. 回到 GitHub Desktop 的 **Changes**。
-3. 填写本次修改说明。
-4. 点击 **Commit to main**。
-5. 点击 **Push origin**。
+1. 在本地 `EasyGlobe` 文件夹修改文件。
+2. 在 GitHub Desktop 中检查变更。
+3. 填写本次修改说明并提交。
+4. 点击 **Push origin**。
 
-开启 Pages 后，推送到 `main` 的修改会自动更新网站。
+如果已经开启 Pages，GitHub 完成新提交的部署后，网页会自动更新。
 
 ## 常见问题
 
-### GitHub 链接暂时打开 404
+### 网页打开后没有样式
 
-第一次发布仓库前，`https://github.com/Andrew-AI-Kitchen/EasyGlobe` 还不存在，因此这是正常现象。完成 **Publish repository** 后链接就会生效。
-
-### Pages 打开后样式丢失
-
-确认 Pages 的发布目录是 `/(root)`，并确认 `assets`、`config`、`rebuild.css` 和 `rebuild.js` 已经提交。
+确认 `assets/`、`config/`、`rebuild.css` 和 `rebuild.js` 已提交，并确认 Pages 从仓库根目录发布。
 
 ### macOS 不允许打开启动器
 
-右键 `Start EasyGlobe.command`，选择“打开”，再确认一次。启动器只会在本机启动静态网页服务。
+右键 `Start EasyGlobe.command`，选择“打开”并确认一次。启动器只会在本机启动静态文件服务。

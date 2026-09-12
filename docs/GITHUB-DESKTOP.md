@@ -2,63 +2,65 @@
 
 English | [简体中文](GITHUB-DESKTOP.zh-CN.md)
 
-This guide is for the prepared `EasyGlobe` folder. The project is fully static, so uploading it does not require Node.js or a server deployment.
+EasyGlobe is a static frontend project. Uploading it does not require Node.js, a database, or a backend deployment.
 
-## 1. Select the prepared folder
+## 1. Add the local repository
 
-Use this local path:
-
-```text
-langalpha-home-rebuild/github-upload/EasyGlobe
-```
-
-Do not select the outer `langalpha-home-rebuild` folder, and do not upload `00-source`, `01-audit`, or `03-qa`.
-
-## 2. Add it to GitHub Desktop
-
-1. Open GitHub Desktop and sign in to `Andrew-AI-Kitchen`.
+1. Open GitHub Desktop and sign in.
 2. Choose **File → Add Local Repository**.
-3. Select the prepared `EasyGlobe` folder.
+3. Select the `EasyGlobe` folder containing `index.html`, `README.md`, and `.git`.
 4. Choose **Add Repository**.
 
-The prepared folder is already initialized as a local Git repository.
+Do not select a parent workspace or upload audit/source folders from another project. The prepared `EasyGlobe` folder is already initialized on the `main` branch.
 
-## 3. Create the first commit
+## 2. Review the first commit
 
-1. Open **Changes**.
-2. Confirm that the web files, `assets`, `config`, `docs`, and READMEs are selected.
-3. Enter `Initial EasyGlobe release` as the summary.
-4. Leave the description empty if you prefer.
-5. Select **Commit to main**.
+Before committing, confirm that these items are present:
 
-## 4. Publish the repository
+- the webpage files: `index.html`, `rebuild.css`, and `rebuild.js`
+- `assets/` and `config/`
+- screenshots and bilingual documentation under `docs/`
+- `LICENSE`, `NOTICE`, and `THIRD_PARTY_NOTICES.md`
+- the macOS, Windows, and Linux launchers
 
-1. Select **Publish repository**.
-2. Set **Name** to `EasyGlobe`.
-3. Use `An artistic frontend study built around an interactive dotted globe.` as the description.
-4. Select `None` under **Organization** to publish under your personal account.
-5. Clear **Keep this code private** if the repository should be public.
-6. Select **Publish Repository**.
+Enter a concise summary such as `Initial EasyGlobe release`, then choose **Commit to main**.
 
-The repository URL will be `https://github.com/Andrew-AI-Kitchen/EasyGlobe`.
+## 3. Publish the repository
 
-## 5. Enable GitHub Pages (optional)
+1. Choose **Publish repository**.
+2. Set the repository name to `EasyGlobe`, or another final name of your choice.
+3. Add a short description, for example: `An artistic frontend study built around an interactive dotted globe.`
+4. Choose the intended owner or organization.
+5. Clear **Keep this code private** if it should be open source.
+6. Choose **Publish Repository**.
 
-1. In GitHub Desktop, choose **Repository → View on GitHub**.
-2. Open the repository **Settings**.
-3. Select **Pages** in the sidebar.
-4. Set **Source** to **Deploy from a branch**.
-5. Select the `main` branch and `/(root)` folder.
-6. Select **Save**.
+After publishing, use **Repository → View on GitHub** to open the repository.
 
-The expected site URL is `https://andrew-ai-kitchen.github.io/EasyGlobe/`. This project site does not replace your account homepage.
+## 4. Enable GitHub Pages (optional)
+
+1. Open the repository on GitHub.
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select `main` and `/(root)`.
+5. Save the setting.
+
+GitHub displays the real deployment address on the same Pages screen when publishing finishes. A project Pages site is attached to this repository and does not replace an account profile page.
 
 ## Future updates
 
-1. Edit files locally.
-2. Review them under **Changes** in GitHub Desktop.
-3. Enter a concise commit summary.
-4. Select **Commit to main**.
-5. Select **Push origin**.
+1. Edit files in the local `EasyGlobe` folder.
+2. Review the changes in GitHub Desktop.
+3. Commit with a description of the change.
+4. Choose **Push origin**.
 
-GitHub Pages will update automatically after changes are pushed to `main`.
+If Pages is enabled, the site is updated after GitHub finishes deploying the new commit.
+
+## Troubleshooting
+
+### The webpage has no styling
+
+Confirm that `assets/`, `config/`, `rebuild.css`, and `rebuild.js` were committed, and that Pages publishes from the repository root.
+
+### macOS blocks the launcher
+
+Right-click `Start EasyGlobe.command`, choose **Open**, and confirm once. The launcher only starts a local static file server.

@@ -6,23 +6,19 @@
 
 ![平台](https://img.shields.io/badge/platform-Web-73e7c5)
 ![技术](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JavaScript-ffcb64)
-![依赖](https://img.shields.io/badge/runtime-dependencies-0-lightgrey)
+![许可证](https://img.shields.io/badge/license-Apache--2.0-ffcb64)
 
-[在线体验](https://andrew-ai-kitchen.github.io/EasyGlobe/) · [GitHub Desktop 上传指南](docs/GITHUB-DESKTOP.zh-CN.md) · [作者主页](https://github.com/Andrew-AI-Kitchen)
+[GitHub Desktop 上传指南](docs/GITHUB-DESKTOP.zh-CN.md) · [作者主页](https://github.com/Andrew-AI-Kitchen) · [参考网页](https://langalpha.ai/zh-cn/home) · [参考项目](https://github.com/ginlix-ai/LangAlpha)
 
 ![EasyGlobe 交互式网状地球](docs/screenshots/hero-globe.png)
 
-## 为什么做这个项目
+## 项目介绍
 
-EasyGlobe 是一个从零实现的前端学习项目，用来研究高品质产品首页背后的视觉与交互技术。页面采用翻译领域文案作为演示主题，但项目真正关注的是前端表现力：
+EasyGlobe 用来研究高品质产品首页如何组合 Canvas 网状地球、地理标签、动态路线、克制的动画与响应式编辑排版。翻译领域内容只是演示场景，项目本身是一项前端视觉与交互研究。
 
-- 使用 Canvas 绘制正射投影网状地球
-- 把国家标签绑定到真实地理坐标
-- 在所选语言之间生成动态路线
-- 控制排版、留白、动效和响应式构图
-- 通过可视化设置面板调整页面表现
+本项目的视觉方向和部分交互结构，来自对公开可访问的 [LangAlpha 首页](https://langalpha.ai/zh-cn/home)及其浏览器渲染结果的逆向分析。EasyGlobe 并不是从 LangAlpha 官方仓库 fork 或 clone 后开始开发的；页面交互经过重新实现，并被改造成一个拥有不同主题、内容模型、配置系统和交互行为的独立静态项目。
 
-这是一个纯静态前端，不包含翻译模型、用户系统、数据库、数据分析或业务后台。
+LangAlpha 官方仓库现已公开，其中包含 `web/` 前端源码，并采用 Apache License 2.0。EasyGlobe 与 LangAlpha 或 Ginlix AI 没有隶属、合作或官方背书关系。完整来源说明见[致谢](#致谢)和 [NOTICE](NOTICE)。
 
 ## 主要特性
 
@@ -30,10 +26,10 @@ EasyGlobe 是一个从零实现的前端学习项目，用来研究高品质产�
 - **地理标签系统**：国家标签跟随投影坐标移动，并在地球背面自动隐藏。
 - **动态语言路线**：两个国家使用不同颜色高亮，并显示运动连线。
 - **可视化设置中心**：修改品牌、链接、主题、颜色、动画、地球速度和国家文案。
-- **本地优先**：设置只保存在浏览器中，并支持 JSON 导入与导出。
+- **本地优先设置**：配置保存在浏览器中，并支持 JSON 导入与导出。
 - **完整页面交互**：滚动显现、标签页、工作空间、自动化流程、FAQ 和移动端菜单。
 - **三端启动**：提供 macOS、Windows 和 Linux 启动入口。
-- **适配 GitHub Pages**：全部使用相对路径，无须构建，并附带 `.nojekyll`。
+- **静态部署**：使用相对路径并附带 `.nojekyll`，无须构建即可部署到 GitHub Pages。
 
 ## 界面截图
 
@@ -55,7 +51,7 @@ EasyGlobe 是一个从零实现的前端学习项目，用来研究高品质产�
 
 ## 本地启动
 
-电脑只需要安装 Python 3。启动器会自动寻找可用端口，并打开默认浏览器。
+电脑只需要安装 Python 3。启动器会寻找可用端口、启动本地静态服务并打开默认浏览器。
 
 | 系统 | 启动方法 |
 |---|---|
@@ -69,7 +65,15 @@ EasyGlobe 是一个从零实现的前端学习项目，用来研究高品质产�
 python3 launcher.py
 ```
 
-使用期间保持终端窗口打开，结束时按 `Ctrl+C`。不建议直接双击 `index.html`，因为浏览器会限制 `file://` 页面加载模块和配置文件。
+使用期间保持终端窗口打开，结束时按 `Ctrl+C`。不要通过 `file://` 直接打开 `index.html`，浏览器会限制这种模式下的配置文件加载。
+
+## 地球交互
+
+1. 拖动地球进行旋转。
+2. 选择一个国家作为源语言。
+3. 再选择一个国家作为目标语言。
+4. 两个国家会分别高亮，并出现动态连接路线。
+5. 使用交换或重置按钮改变当前选择。
 
 ## 可视化设置
 
@@ -77,13 +81,11 @@ python3 launcher.py
 
 - 项目名称、页面标题、描述和链接
 - 深色、浅色或跟随系统主题
-- 路线颜色和原语言颜色
+- 路线颜色和源语言颜色
 - 页面动态与地球旋转速度
 - 国家开关、语言名称、例句与情绪提示
 
-设置只保存在当前浏览器。清除浏览器数据或更换设备前，建议先导出 JSON 文件。
-
-默认配置也可以直接编辑：
+设置保存在当前浏览器中，并可以导出或导入 JSON。仓库默认配置位于：
 
 ```text
 config/site.json
@@ -93,13 +95,9 @@ config/content.zh-CN.json
 
 ## 上传与发布
 
-整理后的文件夹可以直接添加到 GitHub Desktop。完整步骤见 [docs/GITHUB-DESKTOP.zh-CN.md](docs/GITHUB-DESKTOP.zh-CN.md)。
+在 GitHub Desktop 中把 `EasyGlobe` 文件夹添加为本地仓库，建立第一次提交并发布即可。完整的中英文操作说明见 [docs/GITHUB-DESKTOP.zh-CN.md](docs/GITHUB-DESKTOP.zh-CN.md)。
 
-GitHub Pages 选择从 `main` 分支和仓库根目录发布，预计地址为：
-
-```text
-https://andrew-ai-kitchen.github.io/EasyGlobe/
-```
+GitHub Pages 是可选功能。开启后，GitHub 会在仓库的 **Settings → Pages** 页面显示部署地址。
 
 ## 项目结构
 
@@ -116,26 +114,21 @@ EasyGlobe/
 ├── Start EasyGlobe.command
 ├── start-easyglobe.cmd
 ├── start-easyglobe.sh
+├── LICENSE
+├── NOTICE
+├── THIRD_PARTY_NOTICES.md
 ├── README.md
 └── README.zh-CN.md
 ```
 
-## 项目边界与限制
+## 致谢
 
-- 这是前端交互概念，不是真正的翻译服务。
-- 设置按浏览器保存，不会自动写回仓库配置文件。
-- 国家数量有意控制在少量演示范围内。
-- Python 只用于在本机提供静态文件，不是业务后台。
-- GitHub Pages 可以托管静态体验，但不提供服务器端能力。
+- [LangAlpha 官网](https://langalpha.ai/zh-cn/home)：本项目最初研究的公开网页，也是视觉方向与交互思路的主要参考。
+- [ginlix-ai/LangAlpha](https://github.com/ginlix-ai/LangAlpha)：LangAlpha 官方开源项目，仓库包含公开的 Web 前端，采用 [Apache License 2.0](https://github.com/ginlix-ai/LangAlpha/blob/main/LICENSE)。
+- [D3.js](https://d3js.org/)、[Geist](https://vercel.com/font) 与 [Natural Earth](https://www.naturalearthdata.com/)：EasyGlobe 使用的程序库、字体和地理数据。
 
-## 设计学习说明
+LangAlpha 及其商标归各自权利人所有。这里的来源说明仅用于讲清项目的学习与重建过程，不代表赞助、合作或官方认可。
 
-EasyGlobe 是一个为前端学习而独立、从零实现的项目。首页的视觉呈现研究参考了 [LangAlpha](https://langalpha.ai/zh-cn/home)。EasyGlobe 不包含对方源代码、Logo、业务身份或服务实现，与 LangAlpha 不存在隶属或官方合作关系。
+## 开源许可证
 
-## 第三方材料
-
-项目使用 D3.js、Geist 字体与公有领域的 Natural Earth 地理数据，具体见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
-
-## 许可证
-
-EasyGlobe 当前没有授予开源许可证，代码仅公开用于学习和查看。第三方组件继续遵循各自的许可证。
+EasyGlobe 采用 [Apache License 2.0](LICENSE) 开源。本仓库自行编写的代码和修改内容受该许可证约束；第三方组件与数据继续遵循各自的许可条款，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

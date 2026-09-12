@@ -1,0 +1,19 @@
+EasyGlobe
+Copyright 2026 Andrew AI Kitchen contributors
+
+EasyGlobe is an independent frontend reconstruction whose visual direction
+and part of its interaction structure were studied from the publicly
+accessible LangAlpha website and browser-rendered output.
+
+LangAlpha
+Copyright 2025 Ginlix AI
+Website: https://langalpha.ai/zh-cn/home
+Source: https://github.com/ginlix-ai/LangAlpha
+License: Apache License 2.0
+
+EasyGlobe was not created as a fork or clone of the official LangAlpha
+repository and is not affiliated with, sponsored by, or endorsed by
+LangAlpha or Ginlix AI. LangAlpha names and trademarks belong to their
+respective owners.
+
+This NOTICE is informational and does not modify the Apache License 2.0.

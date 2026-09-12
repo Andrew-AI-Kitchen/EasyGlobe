@@ -9,3 +9,4 @@
 - Added local JSON settings import/export.
 - Added macOS, Windows, and Linux launchers.
 - Added GitHub Pages compatibility and bilingual project documentation.
+- Added Apache License 2.0, project provenance, LangAlpha attribution, and third-party notices.

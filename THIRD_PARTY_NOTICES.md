@@ -1,6 +1,6 @@
 # Third-party notices
 
-EasyGlobe includes or uses the following third-party materials.
+EasyGlobe includes or uses the following third-party materials. Project-origin attribution is recorded separately in [NOTICE](NOTICE).
 
 ## D3.js
 
