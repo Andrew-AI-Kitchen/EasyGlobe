@@ -8,7 +8,7 @@
 ![技术](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JavaScript-ffcb64)
 ![许可证](https://img.shields.io/badge/license-Apache--2.0-ffcb64)
 
-[GitHub Desktop 上传指南](docs/GITHUB-DESKTOP.zh-CN.md) · [作者主页](https://github.com/Andrew-AI-Kitchen) · [参考网页](https://langalpha.ai/zh-cn/home) · [参考项目](https://github.com/ginlix-ai/LangAlpha)
+[作者主页](https://github.com/Andrew-AI-Kitchen) · [参考网页](https://langalpha.ai/zh-cn/home) · [参考项目](https://github.com/ginlix-ai/LangAlpha)
 
 ![EasyGlobe 交互式网状地球](docs/screenshots/hero-globe.png)
 
@@ -92,12 +92,6 @@ config/site.json
 config/languages.json
 config/content.zh-CN.json
 ```
-
-## 上传与发布
-
-在 GitHub Desktop 中把 `EasyGlobe` 文件夹添加为本地仓库，建立第一次提交并发布即可。完整的中英文操作说明见 [docs/GITHUB-DESKTOP.zh-CN.md](docs/GITHUB-DESKTOP.zh-CN.md)。
-
-GitHub Pages 是可选功能。开启后，GitHub 会在仓库的 **Settings → Pages** 页面显示部署地址。
 
 ## 项目结构
 

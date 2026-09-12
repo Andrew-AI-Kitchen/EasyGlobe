@@ -8,7 +8,7 @@ An artistic frontend study built around an interactive dotted globe, language ro
 ![Stack](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JavaScript-ffcb64)
 ![License](https://img.shields.io/badge/license-Apache--2.0-ffcb64)
 
-[GitHub Desktop guide](docs/GITHUB-DESKTOP.md) · [Creator](https://github.com/Andrew-AI-Kitchen) · [Reference website](https://langalpha.ai/zh-cn/home) · [Reference repository](https://github.com/ginlix-ai/LangAlpha)
+[Creator](https://github.com/Andrew-AI-Kitchen) · [Reference website](https://langalpha.ai/zh-cn/home) · [Reference repository](https://github.com/ginlix-ai/LangAlpha)
 
 ![EasyGlobe interactive dotted globe](docs/screenshots/hero-globe.png)
 
@@ -92,12 +92,6 @@ config/site.json
 config/languages.json
 config/content.zh-CN.json
 ```
-
-## Publish
-
-Add the `EasyGlobe` folder as a local repository in GitHub Desktop, create the first commit, and publish it. The complete bilingual instructions are in [docs/GITHUB-DESKTOP.md](docs/GITHUB-DESKTOP.md).
-
-GitHub Pages is optional. After it is enabled, GitHub displays the deployment address under the repository's **Settings → Pages** page.
 
 ## Project structure
 
