@@ -1,0 +1,7 @@
+{
+  "usa": { "country": "美国", "language": "English", "anchor": [-98, 39], "sample": "I'm fine.", "nuance": "克制、留有距离" },
+  "china": { "country": "中国", "language": "中文", "anchor": [104, 35], "sample": "我没事。", "nuance": "平静，也可能是在回避" },
+  "japan": { "country": "日本", "language": "日本語", "anchor": [138, 37], "sample": "大丈夫です。", "nuance": "礼貌而含蓄" },
+  "france": { "country": "法国", "language": "Français", "anchor": [2, 47], "sample": "Ça va.", "nuance": "自然、轻描淡写" },
+  "spain": { "country": "西班牙", "language": "Español", "anchor": [-4, 40], "sample": "Estoy bien.", "nuance": "直接而温和" }
+}

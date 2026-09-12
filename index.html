@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070909">
+  <meta name="description" content="EasyGlobe 是一套关注情绪、语境与文化差异的翻译 AI 前端概念。">
+  <title>EasyGlobe — 情绪与语境翻译 AI</title>
+  <link rel="stylesheet" href="./rebuild.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="返回首页">
+      <span class="brand-mark" aria-hidden="true"><i>E</i><i>G</i></span>
+      <span data-brand-name>EasyGlobe</span>
+    </a>
+    <nav aria-label="主导航">
+      <a href="#workflow">工作方式</a>
+      <a href="#capabilities">语言能力</a>
+      <a href="#deliverables">交付格式</a>
+      <a href="#workspace">工作空间</a>
+      <a href="#automation">自动化</a>
+      <span data-nav-links></span>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-button settings-toggle" type="button" aria-label="打开设置" title="打开设置" aria-expanded="false" aria-controls="settings-drawer"><span aria-hidden="true">⌘</span></button>
+      <button class="icon-button theme-toggle" type="button" aria-label="切换浅色模式" title="切换浅色模式"><span aria-hidden="true">◐</span></button>
+      <button class="icon-button menu-toggle" type="button" aria-label="菜单" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    </div>
+  </header>
+  <aside id="mobile-menu" class="mobile-menu" aria-label="移动导航" data-open="false">
+    <button class="menu-close" type="button" aria-label="关闭菜单">关闭 <span>×</span></button>
+    <a href="#workflow">工作方式</a><a href="#capabilities">语言能力</a><a href="#deliverables">交付格式</a><a href="#workspace">工作空间</a><a href="#automation">自动化</a>
+  </aside>
+
+  <div class="settings-backdrop" data-settings-backdrop data-open="false"></div>
+  <aside id="settings-drawer" class="settings-drawer" data-settings-drawer data-open="false" aria-label="项目设置" aria-hidden="true">
+    <header class="settings-header">
+      <div><span>LOCAL CONTROL</span><h2>项目设置</h2><p>修改会保存在这台设备的浏览器中。</p></div>
+      <button type="button" class="settings-close" data-settings-close aria-label="关闭设置">×</button>
+    </header>
+    <form data-settings-form novalidate>
+      <section class="settings-section">
+        <div class="settings-section-title"><span>01</span><div><h3>品牌与链接</h3><p>空链接会自动隐藏，不需要保留占位信息。</p></div></div>
+        <label><span>项目名称</span><input name="brand.name" maxlength="60" required></label>
+        <label><span>页面标题</span><input name="brand.title" maxlength="100" required></label>
+        <label class="settings-wide"><span>页面描述</span><textarea name="brand.description" maxlength="180" rows="3" required></textarea></label>
+        <label><span>GitHub 地址</span><input name="links.github" inputmode="url" placeholder="粘贴完整仓库地址"></label>
+        <label><span>作者主页</span><input name="links.creator" inputmode="url" placeholder="粘贴 GitHub 主页地址"></label>
+        <label><span>友情链接</span><input name="links.friendship" inputmode="url" placeholder="粘贴完整网页地址"></label>
+        <label><span>联系邮箱</span><input name="links.email" inputmode="email" placeholder="name@example.com"></label>
+      </section>
+
+      <section class="settings-section">
+        <div class="settings-section-title"><span>02</span><div><h3>视觉与动态</h3><p>颜色会同步到地球、路线和交互状态。</p></div></div>
+        <label><span>强调色</span><input name="appearance.accent" type="color"></label>
+        <label><span>原语言颜色</span><input name="appearance.sourceAccent" type="color"></label>
+        <label><span>默认主题</span><select name="appearance.theme"><option value="dark">深色</option><option value="light">浅色</option><option value="system">跟随系统</option></select></label>
+        <label><span>地球转速 <output data-speed-output>2.5</output></span><input name="appearance.autoRotateSpeed" type="range" min="0" max="5" step="0.1"></label>
+        <label class="settings-check settings-wide"><input name="appearance.motion" type="checkbox"><span><b>启用页面动态</b><small>关闭后会停用滚动显现与装饰动画。</small></span></label>
+      </section>
+
+      <section class="settings-section settings-section-languages">
+        <div class="settings-section-title"><span>03</span><div><h3>国家与语言</h3><p>至少启用两个国家。样例会显示在地球悬浮卡和语言对比中。</p></div></div>
+        <div class="language-settings" data-language-settings></div>
+      </section>
+
+      <p class="settings-status" data-settings-status aria-live="polite"></p>
+      <div class="settings-actions">
+        <button class="settings-primary" type="submit">保存设置</button>
+        <button type="button" data-settings-export>导出设置</button>
+        <button type="button" data-settings-import-trigger>导入设置</button>
+        <input class="visually-hidden" type="file" accept="application/json,.json" data-settings-import>
+        <button class="settings-danger" type="button" data-settings-reset>恢复默认设置</button>
+      </div>
+      <div class="settings-confirm" data-settings-confirm data-open="false">
+        <p>确定清除这台设备上的全部自定义设置？</p>
+        <button type="button" data-settings-reset-confirm>确认恢复默认设置</button>
+        <button type="button" data-settings-reset-cancel>取消</button>
+      </div>
+    </form>
+  </aside>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> EMOTION-AWARE TRANSLATION</p>
+        <h1><span>翻译的不只是语言，</span><span><em>还有话外之音。</em></span></h1>
+        <p class="hero-lede">从字面意义到语气、关系和文化背景，把一句话在另一种语言里重新说对。</p>
+        <a class="pill-button" href="#workflow">了解工作方式 <span>↘</span></a>
+      </div>
+      <div class="globe-stage reveal" data-language-globe-root>
+        <div class="globe-orbit" aria-hidden="true"></div>
+        <canvas data-language-globe aria-label="可旋转的语言地球；点击国家选择原语言和目标语言"></canvas>
+        <svg class="globe-route-layer" aria-hidden="true">
+          <defs><linearGradient id="route-gradient"><stop offset="0" stop-color="#ffcb64"></stop><stop offset="1" stop-color="#73e7c5"></stop></linearGradient></defs>
+          <path class="language-route-glow" data-language-route-glow></path>
+          <path id="language-route" class="language-route-line" data-language-route-line></path>
+          <circle class="language-route-pulse" r="3.5"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#language-route"></mpath></animateMotion></circle>
+        </svg>
+        <button class="country-chip country-us" type="button" data-country="usa" aria-label="美国 · English"><span class="chip-dot"></span><b>USA</b><small>English</small></button>
+        <button class="country-chip country-fr" type="button" data-country="france" aria-label="法国 · Français"><span class="chip-dot"></span><b>FRA</b><small>Français</small></button>
+        <button class="country-chip country-cn" type="button" data-country="china" aria-label="中国 · 中文"><span class="chip-dot"></span><b>CHN</b><small>中文</small></button>
+        <button class="country-chip country-jp" type="button" data-country="japan" aria-label="日本 · 日本語"><span class="chip-dot"></span><b>JPN</b><small>日本語</small></button>
+        <button class="country-chip country-es" type="button" data-country="spain" aria-label="西班牙 · Español"><span class="chip-dot"></span><b>ESP</b><small>Español</small></button>
+        <div class="globe-caption"><span>LANGUAGE PAIR</span><strong class="language-globe-status">选择原语言，再选择目标语言</strong></div>
+        <article class="compare-card" data-compare-card aria-live="polite">
+          <div class="compare-top"><span>语境对比</span><b>READY</b></div><strong class="compare-route">选择两个国家</strong><p class="compare-source">第一种语言保留原句情绪</p><p class="compare-target">第二种语言给出对应表达</p>
+        </article>
+        <article class="country-preview" data-country-preview data-open="false" aria-live="polite">
+          <span>COUNTRY SIGNAL</span><strong>移动到国家标签</strong><p>查看语言与情绪提示</p><small>等待探索</small>
+        </article>
+        <div class="globe-controls">
+          <button type="button" data-swap-languages aria-label="交换语言方向" disabled>⇄ <span>交换</span></button>
+          <button type="button" data-reset-languages aria-label="重新选择语言" disabled>× <span>重选</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section-shell numbered-section reveal">
+      <div class="section-heading"><p class="section-no">01 / 工作方式</p><h2>一句原话，交给一组<br><em>语言智能体。</em></h2><p>它们从不同角度理解同一句话，再共同交出可直接使用的译文。</p></div>
+      <div class="workflow-board">
+        <div class="source-message"><span>原句</span><blockquote>“没关系，你忙你的吧。”</blockquote><small>一句看似平静、实际可能带着失望的话。</small></div>
+        <div class="agent-grid">
+          <article><span>01</span><b>语义分析</b><p>确认事实、动作和指代关系。</p><i>SEMANTIC</i></article>
+          <article><span>02</span><b>语气分析</b><p>识别克制、讽刺、失望与礼貌程度。</p><i>TONE</i></article>
+          <article><span>03</span><b>关系判断</b><p>结合对话双方身份与距离选择表达。</p><i>RELATION</i></article>
+          <article><span>04</span><b>文化适配</b><p>避免逐字翻译造成的生硬或误解。</p><i>CULTURE</i></article>
+        </div>
+        <div class="translated-message"><span>建议译文 · English</span><blockquote>“It’s fine. Go ahead—you’re clearly busy.”</blockquote><small><b>情绪：</b>克制的失望 · <b>语气：</b>轻微疏离</small></div>
+      </div>
+    </section>
+
+    <section id="capabilities" class="section-shell numbered-section reveal">
+      <div class="section-heading split"><div><p class="section-no">02 / 语言能力</p><h2>把上下文带进<br><em>每一次翻译。</em></h2></div><p>不是把词替换成词，而是把说话方式、人物关系和使用场景一起迁移。</p></div>
+      <div class="capability-grid">
+        <article class="capability-card wide"><span class="cap-index">A01</span><div class="tone-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><h3>情绪与语气</h3><p>区分平静、迟疑、讽刺、热情和不耐烦，让译文拥有相同温度。</p></article>
+        <article class="capability-card"><span class="cap-index">A02</span><div class="context-rings" aria-hidden="true"><i></i><i></i><i></i></div><h3>上下文追踪</h3><p>跨段落记住人物、事件与指代。</p></article>
+        <article class="capability-card"><span class="cap-index">A03</span><div class="term-stack" aria-hidden="true"><b>SOURCE</b><b>TERM</b><b>MEMORY</b></div><h3>术语记忆</h3><p>锁定品牌词、产品名和行业表达。</p></article>
+        <article class="capability-card"><span class="cap-index">A04</span><div class="register-scale" aria-hidden="true"><span>随意</span><i></i><span>正式</span></div><h3>语域控制</h3><p>根据沟通对象调整礼貌与正式程度。</p></article>
+        <article class="capability-card wide"><span class="cap-index">A05</span><div class="culture-map" aria-hidden="true"><span>直译</span><i>→</i><span>理解</span><i>→</i><span>当地表达</span></div><h3>文化适配</h3><p>重写双关、习语和文化暗示，让目标读者获得相近感受。</p></article>
+      </div>
+    </section>
+
+    <section id="deliverables" class="section-shell numbered-section reveal">
+      <div class="section-heading"><p class="section-no">03 / 交付格式</p><h2>从一句话到一整套<br><em>可继续工作的文件。</em></h2></div>
+      <div class="deliverable-console">
+        <div class="deliverable-tabs" role="tablist" aria-label="交付格式"><button type="button" role="tab" aria-selected="true" data-deliverable="document">双语文档</button><button type="button" role="tab" aria-selected="false" data-deliverable="subtitle">字幕文件</button><button type="button" role="tab" aria-selected="false" data-deliverable="localization">本地化资源</button><button type="button" role="tab" aria-selected="false" data-deliverable="terms">术语表</button></div>
+        <article class="deliverable-preview" data-deliverable-preview><div class="preview-toolbar"><i></i><i></i><i></i><span>translation_package / bilingual_document.docx</span></div><div class="document-preview"><p class="doc-kicker">BILINGUAL REVIEW</p><h3>发布说明 · Release Notes</h3><div class="parallel-copy"><p><span>原文</span>这一次，我们把等待变成了期待。</p><p><span>译文</span>This time, we turned waiting into anticipation.</p></div><div class="review-note"><b>语气说明</b><p>保留品牌文案的节奏感，避免直译为机械的 “expectation”。</p></div></div></article>
+      </div>
+    </section>
+
+    <section id="workspace" class="section-shell numbered-section reveal">
+      <div class="section-heading split"><div><p class="section-no">04 / 工作空间</p><h2>每个项目都有自己的<br><em>语言记忆。</em></h2></div><p>人物设定、术语与风格不会散落在聊天记录里，而会成为项目持续可用的上下文。</p></div>
+      <div class="workspace-window">
+        <aside class="workspace-tree"><p>PROJECT / PRODUCT LAUNCH</p><button type="button" class="workspace-file is-active" aria-pressed="true" data-workspace="brief"><span>◇</span> translation-brief.md</button><button type="button" class="workspace-file" aria-pressed="false" data-workspace="terms"><span>⌗</span> terminology.json</button><button type="button" class="workspace-file" aria-pressed="false" data-workspace="voice"><span>◌</span> brand-voice.md</button><button type="button" class="workspace-file" aria-pressed="false" data-workspace="characters"><span>◎</span> characters.yaml</button><button type="button" class="workspace-file" aria-pressed="false" data-workspace="review"><span>✓</span> review-notes/</button></aside>
+        <article class="workspace-editor" data-workspace-preview><div class="editor-path">translation-brief.md <span>SAVED</span></div><div class="editor-content"><p class="line-no">01</p><div><h3>项目翻译说明</h3><p><b>目标：</b>让新品发布文案在五种语言里保持轻盈、有信心但不过度承诺。</p><p><b>受众：</b>熟悉数字产品的创意工作者。</p><p><b>避免：</b>过度正式、逐字翻译、夸张的最高级。</p><div class="memory-token"><span>已连接</span> 术语记忆 · 品牌语气 · 审校反馈</div></div></div></article>
+      </div>
+    </section>
+
+    <section id="automation" class="section-shell numbered-section reveal">
+      <div class="section-heading split"><div><p class="section-no">05 / 自动化</p><h2>让重复翻译任务<br><em>自己流动。</em></h2></div><p>选择一个模板，文件进入后自动翻译、校验并送到等待确认的位置。</p></div>
+      <div class="automation-board"><div class="automation-templates"><button class="automation-template is-active" type="button" aria-pressed="true" data-automation="subtitle"><span>01</span><b>字幕批处理</b><small>每次上传视频后</small></button><button class="automation-template" type="button" aria-pressed="false" data-automation="release"><span>02</span><b>版本文案同步</b><small>每周二、四</small></button><button class="automation-template" type="button" aria-pressed="false" data-automation="terms"><span>03</span><b>术语一致性审校</b><small>文档更新时</small></button></div><div class="automation-flow" data-automation-flow><div class="flow-line"></div><article><span>01</span><b>接收字幕</b><small>episode-08.srt</small><i>DONE</i></article><article><span>02</span><b>理解语境</b><small>说话人 · 情绪 · 前后文</small><i>DONE</i></article><article><span>03</span><b>生成译文</b><small>English → 中文</small><i>RUNNING</i></article><article><span>04</span><b>等待审校</b><small>review/subtitle-08.srt</small><i>QUEUED</i></article></div></div>
+    </section>
+
+    <section class="section-shell formats-section reveal">
+      <div class="formats-copy"><p class="section-no">06 / 接入方式</p><h2>从常见格式开始，<br><em>随时接入你的流程。</em></h2></div>
+      <div class="format-grid"><article><span>TXT</span><b>文本</b><small>粘贴即译</small></article><article><span>DOC</span><b>文档</b><small>保留层级</small></article><article><span>SRT</span><b>字幕</b><small>保留时间轴</small></article><article><span>AUD</span><b>音频</b><small>说话人识别</small></article><article><span>API</span><b>接口</b><small>连接产品</small></article><article><span>BAT</span><b>批处理</b><small>整批运行</small></article></div>
+    </section>
+
+    <section id="faq" class="section-shell faq-section reveal">
+      <div class="section-heading"><p class="section-no">07 / 常见问题</p><h2>关于这套翻译体验。</h2></div>
+      <div class="faq-list"><article class="faq-item"><button type="button" aria-expanded="false"><span>为什么同一句话会有不同译法？</span><i>+</i></button><div class="faq-answer"><p>说话人的关系、情绪和使用场景会改变正确表达。系统会保留这些变量，并解释为什么选择当前译法。</p></div></article><article class="faq-item"><button type="button" aria-expanded="false"><span>情绪翻译是怎样工作的？</span><i>+</i></button><div class="faq-answer"><p>它先判断语气、礼貌程度与潜台词，再在目标语言中寻找情绪作用相近的表达，而不是只匹配字面。</p></div></article><article class="faq-item"><button type="button" aria-expanded="false"><span>可以记住专有名词和品牌语气吗？</span><i>+</i></button><div class="faq-answer"><p>可以。每个工作空间保存自己的术语记忆、风格规则和审校反馈，后续任务会持续复用。</p></div></article><article class="faq-item"><button type="button" aria-expanded="false"><span>这是可以直接购买的产品吗？</span><i>+</i></button><div class="faq-answer"><p>目前是一个前端交互概念，用来探索语境翻译产品应该怎样呈现和使用。</p></div></article></div>
+    </section>
+
+    <section class="closing section-shell reveal"><div class="closing-grid" aria-hidden="true"></div><p class="eyebrow"><span></span> TRANSLATE WHAT WORDS DON’T SAY</p><h2>把真正想表达的，<br><em>带到另一种语言里。</em></h2><a class="pill-button" href="#top">重新选择语言 <span>↑</span></a></section>
+  </main>
+
+  <footer><div class="footer-brand"><span class="brand-mark" aria-hidden="true"><i>E</i><i>G</i></span><div><b data-brand-name>EasyGlobe</b><small>情绪与语境翻译 AI · 前端概念</small></div></div><div class="footer-links"><a href="#workflow">工作方式</a><a href="#capabilities">语言能力</a><a href="#faq">常见问题</a><span data-config-links></span></div><p>© <span data-current-year></span> <span data-brand-name>EasyGlobe</span></p></footer>
+  <script src="./assets/d3.v7.min.js"></script>
+  <script type="module" src="./rebuild.js"></script>
+</body>
+</html>

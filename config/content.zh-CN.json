@@ -1,0 +1,20 @@
+{
+  "deliverables": {
+    "document": { "path": "translation_package / bilingual_document.docx", "kicker": "BILINGUAL REVIEW", "title": "发布说明 · Release Notes", "source": "这一次，我们把等待变成了期待。", "target": "This time, we turned waiting into anticipation.", "note": "保留品牌文案的节奏感，避免直译为机械的 expectation。" },
+    "subtitle": { "path": "translation_package / episode-08.zh-CN.srt", "kicker": "TIMECODE PRESERVED", "title": "第八集 · 关键对白", "source": "00:03:18,120  别担心，我在。", "target": "00:03:18,120  Don’t worry. I’m right here.", "note": "保留停顿节奏，使用更适合亲密关系的安慰方式。" },
+    "localization": { "path": "translation_package / zh-CN.json", "kicker": "PRODUCT LOCALIZATION", "title": "界面文案 · Product UI", "source": "Keep creating", "target": "继续创作", "note": "根据按钮尺寸与产品语气使用短句，不译成保持创造。" },
+    "terms": { "path": "translation_package / terminology.csv", "kicker": "TERM MEMORY", "title": "产品术语 · Terminology", "source": "workspace → 工作空间", "target": "voice profile → 语气档案", "note": "已锁定 48 个核心词；后续翻译会自动检查一致性。" }
+  },
+  "workspaceFiles": {
+    "brief": { "path": "translation-brief.md", "title": "项目翻译说明", "lines": ["目标：让新品发布文案在五种语言里保持轻盈、有信心但不过度承诺。", "受众：熟悉数字产品的创意工作者。", "避免：过度正式、逐字翻译、夸张的最高级。"], "memory": "术语记忆 · 品牌语气 · 审校反馈" },
+    "terms": { "path": "terminology.json", "title": "项目术语记忆", "lines": ["workspace → 工作空间", "voice profile → 语气档案", "emotion cue → 情绪提示"], "memory": "48 个词条 · 5 种语言 · 自动校验" },
+    "voice": { "path": "brand-voice.md", "title": "品牌语气档案", "lines": ["清晰，但不命令。", "温暖，但不过度亲密。", "聪明，但不用复杂词证明自己。"], "memory": "短句 · 主动语态 · 克制表达" },
+    "characters": { "path": "characters.yaml", "title": "人物与关系", "lines": ["Mina：主角，谨慎而敏锐。", "Leo：朋友，表达直接。", "关系：熟悉，但仍有未说出口的隔阂。"], "memory": "对话人物 · 称谓 · 关系距离" },
+    "review": { "path": "review-notes/", "title": "审校反馈", "lines": ["没问题在本项目中优先译为自然的确认，而不是字面否定。", "面对用户的句子避免过度正式。", "保留角色说话时的短停顿。"], "memory": "12 条规则 · 最后更新于本次审校" }
+  },
+  "automationFlows": {
+    "subtitle": [["接收字幕", "episode-08.srt", "DONE"], ["理解语境", "说话人 · 情绪 · 前后文", "DONE"], ["生成译文", "English → 中文", "RUNNING"], ["等待审校", "review/subtitle-08.srt", "QUEUED"]],
+    "release": [["检测更新", "release-notes.md", "DONE"], ["对照术语", "产品词汇与品牌语气", "DONE"], ["同步五种语言", "web · desktop · mobile", "RUNNING"], ["创建合并请求", "localization/release-08", "QUEUED"]],
+    "terms": [["扫描文档", "24 files", "DONE"], ["发现不一致", "7 terminology conflicts", "DONE"], ["给出建议", "context-aware alternatives", "RUNNING"], ["等待确认", "review/terms-report.html", "QUEUED"]]
+  }
+}
